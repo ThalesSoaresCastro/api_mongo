@@ -1,19 +1,21 @@
 from flask import Flask, jsonify, request, Response, render_template,redirect, url_for
 from database.db import initialize_db
-from database.models  import Video
+from database.models import Video
 
 import json
 
 app = Flask(__name__)
 
-
 app.config['MONGODB_SETTINGS']={
-    'host':'mongodb://127.0.0.1:27017/videos_api'
+    #docker
+    #'host':'mongodb://127.0.0.1:27017/videos_api'
+    #cloud.mongodb
+    "host":"mongodb+srv://thales1234:thales12345@cluster0.phfwc.mongodb.net/videoapi?retryWrites=true&w=majority"
 }
 
+
+
 initialize_db(app)
-
-
 
 check_list = lambda value, list_values : [True if l['theme'] == value else False for l in list_values] 
 
