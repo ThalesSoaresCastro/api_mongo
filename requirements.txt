@@ -1,4 +1,5 @@
 click==7.1.2
+dnspython==1.16.0
 Flask==1.1.2
 flask-mongoengine==0.9.5
 Flask-WTF==0.14.3

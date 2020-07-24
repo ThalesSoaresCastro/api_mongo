@@ -96,8 +96,6 @@ def get_themes():
     #return Response(json.dumps(theme_list), mimetype="application/json", status=200)
     return render_template('themes.html', titulo='Score of Themes', theme_list = theme_list)
 
-
-
 if __name__=='__main__':
     app.run(threaded=True, port=5000)
     #app.run(debug=True, use_reloader=True)
