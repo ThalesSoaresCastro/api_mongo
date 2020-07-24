@@ -10,7 +10,7 @@ app.config['MONGODB_SETTINGS']={
     #docker
     #'host':'mongodb://127.0.0.1:27017/videos_api'
     #cloud.mongodb
-    "host":"mongodb+srv://<user>:<passworf>@cluster0.phfwc.mongodb.net/videoapi?retryWrites=true&w=majority"
+    "host":"mongodb+srv://<user>:<password>@cluster0.phfwc.mongodb.net/videoapi?retryWrites=true&w=majority"
 }
 
 
