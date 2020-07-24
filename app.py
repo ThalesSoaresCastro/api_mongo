@@ -76,9 +76,10 @@ def get_deslike(id):
 def get_themes():
     theme_list = []
     video_list = Video.objects().to_json()
+
     for t in json.loads(video_list):
         if theme_list == []:
-            theme_list.append({'theme' : t['theme'], 'likes': 0, 'dislikes': 0, 'score':0})
+            theme_list.append({'theme' : t['theme'], 'likes': t['like'], 'dislikes': t['dislike'], 'score':t['like']-(t['dislike']/2) })
         else:
             aux = True
             for th in theme_list:
@@ -88,8 +89,8 @@ def get_themes():
                     th['score'] = th['likes']-(th['dislikes']/2)   
                     aux=False
             if aux:
-                theme_list.append({'theme' : t['theme'], 'likes': 0, 'dislikes': 0, 'score':0})
-    
+                theme_list.append({'theme' : t['theme'], 'likes': t['like'], 'dislikes': t['dislike'], 'score':t['like']-(t['dislike']/2) })
+
     #theme_list_ordened = sorted(theme_list, key=lambda th: th['score'], reverse=True)
     theme_list = sorted(theme_list, key=lambda th: th['score'], reverse=True)
     
